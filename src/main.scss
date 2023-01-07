@@ -1,0 +1,236 @@
+@font-face {
+  font-family: 'Gotham';
+  src: url('../public/fonts/Gotham/gotham-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../public/fonts/Gotham/gotham-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../public/fonts/Gotham/gotham-Book.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../public/fonts/Gotham/gotham-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../public/fonts/Gotham/gotham-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../public/fonts/Gotham/gotham-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+:root {
+  --time-animation: 0.5s;
+  -ms-overflow-style: none;
+  --max-width: 1250px;
+  --color-primary: #00e17e;
+  --color-secondary: #fd076d;
+  --color-text-primary: #f2f2f2;
+  --color-text-secondary: rgb(0, 0, 0);
+  --color-stick-active: #bef0ff;
+  --background-primary: #0f0f11;
+  --background-secondary: #252531;
+  --background-tertiary: #f2f2f2;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-family: 'Gotham', sans-serif;
+  font-size: 16px;
+  background-color: var(--background-primary);
+}
+
+body.without-scroll {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+svg path {
+  fill: inherit;
+}
+
+.grate {
+  width: calc(100% - 4em);
+  position: absolute;
+  height: 0%;
+  border: 3px solid #eaeaea;
+  border-top: none;
+  z-index: -2;
+  border-bottom: none;
+}
+
+.glitch {
+  &:before,
+  &:after {
+    content: attr(data-text-glitch);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    display: none;
+  }
+  &:after {
+    color: var(--color-secondary);
+    z-index: -2;
+  }
+  &:before {
+    color: var(--color-primary);
+    z-index: -1;
+  }
+  &:hover {
+    &:before {
+      display: block;
+      animation: glitch-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    &:after {
+      display: block;
+      animation: glitch-left-2 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse
+        both;
+    }
+  }
+}
+
+.logo {
+  fill: var(--color-primary);
+  width: 50vw;
+  position: absolute;
+  top: calc(50% - 25vw);
+  padding: 0em;
+  left: calc(50% - 25vw);
+}
+
+.logo > * {
+  fill-opacity: var(--logo-opacity);
+  animation: logo-opacity 2s var(--delay-animation) infinite;
+  filter: drop-shadow(0 0 0.5rem var(--color-primary));
+}
+
+.section-container,
+header {
+  display: none;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-primary);
+  z-index: 9999;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+#g-recaptcha-response {
+  font-weight: 300;
+  font-size: 0.8em;
+  margin-top: 1em;
+}
+
+.container-loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: #00000090;
+  display: none;
+  backdrop-filter: blur(2px);
+}
+
+.container-loading .loading svg {
+  width: 100px;
+  height: 100px;
+}
+
+.container-loading.active {
+  display: flex;
+}
+
+@keyframes logo-opacity {
+  0% {
+    fill-opacity: 0.1;
+  }
+  50% {
+    fill-opacity: 1;
+  }
+  100% {
+    fill-opacity: 0.1;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .grate {
+    display: none;
+  }
+
+  .section-container section {
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+  }
+}

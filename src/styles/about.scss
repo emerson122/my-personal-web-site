@@ -1,0 +1,165 @@
+/* -------------------------------- SECCION TWO ABOUT ---------------------------------- */
+
+$border-portfile: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+
+.section-container .s2 {
+  background-color: var(--background-primary);
+  overflow: hidden;
+}
+
+.section-container .s2 .s2-container {
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.section-container .s2 .s2-container .s2-content {
+  width: 50%;
+  padding: 4em 1em;
+  text-align: left;
+  transform: translate(-100%, 0%);
+  opacity: 0;
+}
+
+.section-container .s2 .s2-container .s2-content h3 {
+  font-size: 3em;
+  margin-bottom: 0.25em;
+  position: relative;
+  display: inline-block;
+}
+
+.section-container .s2 .s2-container .s2-content p {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.section-container .s2 .s2-container .s2-content a {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.section-container .s2 .porfile-container {
+  position: relative;
+  opacity: 0;
+  width: 300px;
+  max-width: 100%;
+  height: 300px;
+}
+
+.section-container .s2 .porfile-container .border {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  background: var(--color-primary);
+  z-index: 1;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+}
+
+// .section-container .s2 .porfile-container .light {
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+//   box-shadow: 0px 0px 57px 0px #fff, inset 0px 0px 58px 3px #fff;
+//   -webkit-animation: flicker-1 2s linear infinite both;
+//   animation: flicker-1 4s linear infinite both;
+//   background-color: rgba(255, 255, 255, 0.1);
+//   clip-path: $border-portfile;
+//   z-index: 3;
+// }
+
+.section-container .s2 .porfile-container .porfile {
+  width: 100%;
+  height: 100%;
+}
+.section-container .s2 .porfile-container .porfile img {
+  clip-path: $border-portfile;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  position: relative;
+  z-index: 1;
+}
+
+.section-container .s2 .circle {
+  &::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: calc(0% - 200px);
+    left: calc(100% - 200px);
+    z-index: -7;
+    -webkit-clip-path: polygon(
+      0% 50%,
+      25% 95%,
+      75% 95%,
+      100% 50%,
+      75% 5%,
+      25% 5%
+    );
+    clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+    background: var(--background-secondary);
+  }
+}
+
+.section-container .s2 .circle2 {
+  &::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(0% - 200px);
+    z-index: -7;
+    -webkit-clip-path: polygon(
+      0% 50%,
+      25% 95%,
+      75% 95%,
+      100% 50%,
+      75% 5%,
+      25% 5%
+    );
+    clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+    background: var(--background-secondary);
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .section-container .s2 .s2-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1em;
+  }
+
+  .section-container .s2 .s2-container .s2-content {
+    width: 100%;
+    padding: 4em 0.5em;
+  }
+
+  .section-container .s2 .s2-container .s2-content h3 {
+    font-size: 2em;
+  }
+
+  .section-container .s2 .s2-container .s2-content p {
+    font-size: 1em;
+    padding: 0.5em;
+  }
+
+  .section-container .s2 .porfile-container {
+    margin-bottom: 4em;
+  }
+}

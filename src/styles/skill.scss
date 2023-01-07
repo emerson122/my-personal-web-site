@@ -1,0 +1,342 @@
+/* -------------------------------- SECCION THREE SKILL ---------------------------------- */
+.section-container .s3 {
+  background-color: var(--background-primary);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.section-container .s3 .s3-container {
+  padding: 2em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section-container .s3 .s3-container .s3-content {
+  margin-top: 3em;
+}
+
+.section-container .s3 .s3-container .s3-content h3 {
+  font-size: 1.75em;
+  margin-bottom: 0.5em;
+  position: relative;
+  z-index: 8;
+}
+
+.section-container .s3 .s3-container .s3-content p {
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+/* -------------------------------- CANVAS PHYSIC -------------------------*/
+.container-gravity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.container-gravity-move {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+}
+
+.container-gravity > span {
+  z-index: -5;
+  color: #ffffff;
+  text-align: center;
+}
+
+.container-gravity {
+  width: 100%;
+  height: 100%;
+}
+
+.container-gravity .gravity {
+  width: 100%;
+  height: 100%;
+}
+
+.container-gravity canvas {
+  overflow: scroll;
+  z-index: 6;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.click {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  position: absolute;
+  top: 19%;
+  left: 2.5%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 400;
+  z-index: 8;
+  transform: scale(0);
+  -webkit-clip-path: polygon(
+    0% 50%,
+    25% 95%,
+    75% 95%,
+    100% 50%,
+    75% 5%,
+    25% 5%
+  );
+  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    95% 25%,
+    95% 75%,
+    50% 100%,
+    5% 75%,
+    5% 25%
+  );
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  transition: all 0.2s ease-in;
+
+  &:hover {
+    width: 100px;
+    height: 100px;
+
+    & > .borderIn {
+      width: 80px;
+      height: 80px;
+    }
+
+    & > .borderOut {
+      width: 98px;
+      height: 98px;
+    }
+
+    & > .borderOut::after {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
+
+.click .borderIn {
+  width: 78px;
+  height: 78px;
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  background: var(--background-primary);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  -webkit-clip-path: polygon(
+    0% 50%,
+    25% 95%,
+    75% 95%,
+    100% 50%,
+    75% 5%,
+    25% 5%
+  );
+  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    95% 25%,
+    95% 75%,
+    50% 100%,
+    5% 75%,
+    5% 25%
+  );
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  transition: all 0.2s ease-in;
+}
+
+.click .borderOut {
+  width: 88px;
+  height: 88px;
+  position: absolute;
+  z-index: -2;
+  top: 50%;
+  left: 50%;
+  background: var(--background-primary);
+  overflow: hidden;
+  transform: translate(-50%, -50%);
+  -webkit-clip-path: polygon(
+    0% 50%,
+    25% 95%,
+    75% 95%,
+    100% 50%,
+    75% 5%,
+    25% 5%
+  );
+  clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    95% 25%,
+    95% 75%,
+    50% 100%,
+    5% 75%,
+    5% 25%
+  );
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  transition: all 0.2s ease-in;
+
+  &::after {
+    content: ' ';
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transition: all 0.2s ease-in;
+    background: #fff;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    -webkit-clip-path: polygon(
+      0% 50%,
+      25% 95%,
+      75% 95%,
+      100% 50%,
+      75% 5%,
+      25% 5%
+    );
+    clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+    -webkit-clip-path: polygon(
+      50% 0%,
+      95% 25%,
+      95% 75%,
+      50% 100%,
+      5% 75%,
+      5% 25%
+    );
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  }
+
+  &::before {
+    content: ' ';
+    width: 20px;
+    height: 100px;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    background-color: var(--color-primary);
+    transform: translate(-50%, -50%);
+    transition: all 0.2s linear;
+    animation: wave 8.6s linear infinite;
+  }
+}
+
+.animation-drag {
+  position: absolute;
+  top: calc(100% - 100px);
+  left: calc(60% - 220px);
+  width: 100px;
+  height: 100px;
+  display: none;
+  opacity: 0;
+}
+
+.animation-drag .box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.animation-drag .box rect {
+  stroke: #aaa;
+}
+
+.animation-drag .mouse {
+  fill: #aaa;
+  position: absolute;
+  top: -70%;
+  left: -25%;
+  width: 103px;
+  height: 106px;
+}
+
+@keyframes wave {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.section-container .s3 .circle {
+  &::before {
+    content: '';
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: calc(100% - 200px);
+    left: calc(100% - 200px);
+    z-index: -7;
+    -webkit-clip-path: polygon(
+      0% 50%,
+      25% 95%,
+      75% 95%,
+      100% 50%,
+      75% 5%,
+      25% 5%
+    );
+    clip-path: polygon(0% 50%, 25% 95%, 75% 95%, 100% 50%, 75% 5%, 25% 5%);
+    background: var(--background-secondary);
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .section-container .s3 .s3-container .s3-content {
+    margin-top: 1em;
+  }
+
+  .section-container .s3 .s3-container .s3-content h3 {
+    font-size: 1.4em;
+  }
+
+  .section-container .s3 .s3-container .s3-content p {
+    font-size: 1em;
+  }
+
+  .animation-drag {
+    top: calc(100% - 70px);
+    left: calc(80% - 220px);
+    width: 70px;
+    height: 100px;
+  }
+
+  .animation-drag .box {
+    width: 70px;
+    height: 70px;
+  }
+
+  .animation-drag .mouse {
+    width: 73px;
+    height: 76px;
+  }
+}
